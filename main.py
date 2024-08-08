@@ -14,11 +14,11 @@ class Cerveceria:
 
     class Fermentacion:
         def __init__(self):
-            # Estos datos no pueden ser modificables
+            #non modifiable variables!!!!!!
             self.temperatura = 25
             self.litros_maximos = 300000
             self.numero_tanques = 3
-            self.randomize_proceso_fermentacion()  # Llama al método para inicializar las demás variables
+            self.randomize_proceso_fermentacion()
 
         def randomize_proceso_fermentacion(self):
             # Datos aleatorios que se pueden modificar con un botón
@@ -50,7 +50,7 @@ class Cerveceria:
 
     class Empaquetado:
         def __init__(self):
-            self.empaquetadoras = 3  # Se utilizará en pygame
+            self.empaquetadoras = 3 #just used on pygame thing
             self.capacidad_six = 6
             self.costo_por_caja = 2
 
@@ -93,7 +93,7 @@ class Aplicacion:
     def __init__(self, root):
         self.root = root
         self.cerveceria = Cerveceria()
-        self.current_stage = 'fermentacion'  # Inicializar la etapa actual
+        self.current_stage = 'fermentacion' 
         
         # Crear el control de pestañas
         self.tabControl = ttk.Notebook(root)
@@ -288,11 +288,11 @@ class Aplicacion:
             ttk.Button(frame, text="Randomize", command=lambda var=var, attr_name=attr_name: randomize(var, attr_name)).pack(side=tk.LEFT, padx=10)
 
     def init_empaquetado_tab(self):
-        # Adaptado a empaquetado
+
         pass
 
     def init_distribucion_tab(self):
-        # Adaptado a distribución
+
         pass
 
     def run_simulation(self, completed_stage):
@@ -314,11 +314,8 @@ class Aplicacion:
             self.result_text.delete('1.0', tk.END)
             result_message = f"Resultados de Embotellado:\nBotellas Producidas: {botellas_producidas:.0f}\nCosto Energía: {costo_energia:.2f}\nPago Empleados: {pago_empleados:.2f}"
             self.result_text.insert(tk.END, result_message)
-            self.tabControl.tab(2, state='normal')  # Habilitar Empaquetado
+            self.tabControl.tab(2, state='normal')  
 
-
-
-# Configuración inicial de la ventana
 root = tk.Tk()
 root.title("Cerveza2")
 app = Aplicacion(root)
